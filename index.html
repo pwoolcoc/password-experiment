@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>No Shared Secrets</title>
+    <link rel="stylesheet" href="Skeleton-2.0.2/css/normalize.css">
+    <link rel="stylesheet" href="Skeleton-2.0.2/css/skeleton.css">
+    <script src="base64.js"></script>
+    <script src="js-nacl/lib/nacl_factory.js"></script>
+    <script src="js-scrypt/browser/scrypt.js"></script>
+    <script>
+    var nacl = nacl_factory.instantiate();
+    var scrypt = scrypt_module_factory();
+    </script>
+    <style>
+    .flex {
+        width: 900px;
+        display: flex;
+        flex-direction: row;
+        margin: 0 auto;
+    }
+    .forms { flex: 1 1 auto; border-right: 1px solid #000; }
+    .users { flex: 1 1 auto; margin-left: 10px; }
+    </style>
+</head>
+<body>
+    <div class="flex">
+        <div class="forms">
+            <h2>Register</h2>
+            <form id="register" action="/register" method="POST">
+                <label for="reg-username">Username</label>
+                <input class="username" id="reg-username" name="username"><br>
+                <label for="reg-password">Password</label>
+                <input class="password" id="reg-password" name="password" type="password"><br>
+                <input type="submit" value="Register">
+            </form>
+            <h2>Login</h2>
+            <form id="login" action="/login" method="POST">
+                <label for="lg-username">Username</label>
+                <input class="username" id="lg-username" name="username"><br>
+                <label for="lg-password">Password</label>
+                <input class="password" id="lg-password" name="password" type="password"><br>
+                <input type="submit" value="Login">
+            </form>
+        </div>
+        <div class="users">
+          <h2>Users</h2>
+          <table>
+            <thead>
+              <tr><th>Username</th><th>Public Key</th></tr>
+            </thead>
+            <tbody>
+        %%USERS%%
+            </tbody>
+          </table>
+        </div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>
