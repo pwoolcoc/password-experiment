@@ -1,3 +1,9 @@
+To use:
+
+    $ sudo apt-get install python3 python3-pip
+    $ sudo pip3 install PyNaCl
+    $ python3 serve.py
+
 (Assumes https, though demo does not use it)
 
 # Flow
@@ -24,3 +30,5 @@ For Login:
 * If the server can successfully retrieve the username by using the
   user's registered public key to decrypt the signed username, log
   the user in.
+
+
